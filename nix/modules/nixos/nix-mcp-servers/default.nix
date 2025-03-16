@@ -22,13 +22,13 @@
   _file = ./default.nix;
 
   # Make all our library functions available to modules
-  config._module.args.lib = lib.extend (self: super: {
+  # Library extensions handled via imports instead
     ${namespace} = import ../../../lib {
       lib = super;
       inherit inputs;
       snowfall-inputs = inputs;
     };
-  });
+
 
   imports = [
     ./clients
